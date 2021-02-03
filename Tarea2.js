@@ -38,7 +38,7 @@ const obj = {
   
   contadorMascota: function(){
     let contador= 0
-    let arreglonuevo=[]
+    let arreglonuevo=[] //Creo nuevo arreglo para guardar las mascotas terminadas en "os"
     
     for (let i = 0; i < this.mascotas.length; i++) {
       //obtengo los ultimos 2 caracteres de cada elemento del arreglo por medio de la iteración de "i"
@@ -47,7 +47,7 @@ const obj = {
       if (caracterMascota =="os") {
         contador+=1
 
-        let pushNuevoArreglo=arreglonuevo.push(this.mascotas[i])
+        let pushNuevoArreglo=arreglonuevo.push(this.mascotas[i])//hago un push para gregar las mascotas terminadas en "os"
       }      
     }
     alert(`En el arreglo hay ${contador} mascotas que terminan con 'os' \n ${arreglonuevo}`);
