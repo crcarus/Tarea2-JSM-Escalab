@@ -3,37 +3,40 @@
 //IndexOF: Identifico la posición de un elemento del array
 //Pop: Elimino el ultimo elemento del array
 //Push: Agrego un nuevo elemento al final del array.
-//Incluid: Identifico si un elemento se encuentra en el array (F/T)
+//Includes: Identifico si un elemento se encuentra en el array (F/T)
 //Slice te trae un extracto de un string.
 
 
 const obj = {
 
-  mascotas: ["Perros", "Gatos","Canarios","Pez", "Serpiente"],  
-  eliminarMascota: function (userPet=document.getElementById("eliminarMascota").value){//userPet:Obtengo la Mascota a eliminar de parte del usuario
-    let capitalizeMascota = userPet[0].toUpperCase() + userPet.slice(1); //Capitalize el texto (Formato Mxxxx)
+    mascotas: ["Perros", "Gatos","Canarios","Pez", "Serpiente"],  
+    eliminarMascota: function (userPet=document.getElementById("eliminarMascota").value){//userPet:Obtengo la Mascota a eliminar de parte del usuario
+      let eliminatePet = userPet[0].toUpperCase() + userPet.slice(1); //Capitalize el texto (Formato Mxxxx)
     
-    //Valido que lo ingresado se encuentra en el array y elimino la Mascota.
-    if (this.mascotas.includes(capitalizeMascota)) { //identifico la Mascota dentro del Array (True/False)
-      //console.log("Esta bien");
-      let removePet = this.mascotas.indexOf(capitalizeMascota); //Identifico la posición de la Mascota a eliminar
-      this.mascotas.splice(removePet,1) //Elimino la Mascota del array, por medio de la posición anterior y 1 solo elemento a eliminar
-      alert(`El arrego maneja las siguientes Mascotas: \n ${obj.mascotas}`)
-      console.log(`El arrego maneja las siguientes Mascotas:: \n ${obj.mascotas}`);
-    } else {
-      console.log("error");
-      alert("Ingrese una mascota del listado anterior")
-    }
-  },
+      //Valido que lo ingresado se encuentra en el array y elimino la Mascota.
+      if (this.mascotas.includes(eliminatePet)) {//Identifico la Mascota dentro del Array (True/False)
+        //console.log("Esta bien");
+        let removePet = this.mascotas.indexOf(eliminatePet); //Identifico la posición de la Mascota a eliminar del arreglo
+        this.mascotas.splice(removePet,1) //Elimino la Mascota del array, por medio de la posición anterior y 1 solo elemento a eliminar
+        alert(`El arrego maneja las siguientes Mascotas: \n ${obj.mascotas}`)
+        console.log(`El arrego maneja las siguientes Mascotas:: \n ${obj.mascotas}`);
+        console.log(`Se elimino: ${eliminatePet}`);
+      } else {
+        console.log("Error: Ingrese una mascota del listado anterior");
+        alert("Error: Ingrese una mascota del listado anterior")
+      }
+    },
 
   eliminarUltimaMascota: function() {
-    this.mascotas.pop() //Elimino la mascota de la Ultima posición del Array.
+    let mascotaEliminada= this.mascotas.pop()//Elimino la mascota de la Ultima posición del Array y la agrego a nueva variable.
     alert(`El arrego maneja las siguientes Mascotas: \n ${obj.mascotas}`)
+    console.log(`Se elimino: ${mascotaEliminada} `); //Muestro en consola la mascota eliminada
 
   },
   agregarMascota: function(userPet=document.getElementById("agregarMascota").value){//userPet:Obtengo la Mascota a agregar de parte del usuario
-    this.mascotas.push(userPet)//Agrego la mascota al Array
+    this.mascotas.push(userPet)//Agrego la nueva mascota al Array
     alert(`El arrego maneja las siguientes Mascotas: \n ${obj.mascotas}`)
+    console.log(`La nueva mascota es: ${userPet}`);//Muestro en consola la mascota agregada
   },
   
   contadorMascota: function(){
@@ -42,7 +45,7 @@ const obj = {
     
     for (let i = 0; i < this.mascotas.length; i++) {
       //obtengo los ultimos 2 caracteres de cada elemento del arreglo por medio de la iteración de "i"
-      const caracterMascota = this.mascotas[i].slice(this.mascotas[i].length-2) //slice: Desestructuro el String y obtengo los 2 ultimos caracteres
+      const caracterMascota = this.mascotas[i].slice(this.mascotas[i].length-2) //slice: Desestructuro el String y obtengo los 2 últimos caracteres
       
       if (caracterMascota =="os") {
         contador+=1
